@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gridlocked.space - MVP</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .grid { display: flex; flex-direction: column; gap: 1px; }
+    .row { display: flex; gap: 1px; }
+    .pixel {
+      width: 8px;
+      height: 8px;
+      background-color: white;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Gridlocked.space - MVP 🔥</h1>
+  <p>Click pixels to switch between Red and Blue. MVP mode.</p>
+  <div id="grid" class="grid"></div>
+
+  <script>
+    const gridSize = 50; // Lower size for smoother demo
+    const gridContainer = document.getElementById('grid');
+
+    for (let y = 0; y < gridSize; y++) {
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      for (let x = 0; x < gridSize; x++) {
+        const pixel = document.createElement('div');
+        pixel.className = 'pixel';
+        pixel.addEventListener('click', () => {
+          if (pixel.style.backgroundColor === 'red') {
+            pixel.style.backgroundColor = 'blue';
+          } else {
+            pixel.style.backgroundColor = 'red';
+          }
+        });
+        row.appendChild(pixel);
+      }
+
+      gridContainer.appendChild(row);
+    }
+  </script>
+</body>
+</html>
