@@ -1,0 +1,71 @@
+<!DOCTYPE html><html>
+<head>
+  <title>Gridlocked.space - 500x500 Fullscreen</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 10px;
+    }
+    #controls {
+      margin: 10px;
+    }
+    button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(500, 1fr);
+      width: 100vw;
+      max-width: 1000px;
+      aspect-ratio: 1 / 1;
+    }
+    .pixel {
+      background: #222;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+    }
+    .red { background: red; }
+    .blue { background: blue; }
+  </style>
+</head>
+<body>
+  <h1>🔥 Gridlocked 500 x 500 MVP 🔥</h1>
+  <div id="controls">
+    <button onclick="setColor('red')">Select Red</button>
+    <button onclick="setColor('blue')">Select Blue</button>
+  </div>
+  <div id="grid"></div> <script>
+    const grid = document.getElementById('grid');
+    let selectedColor = 'red';
+
+    function setColor(color) {
+      selectedColor = color;
+    }
+
+    for (let i = 0; i < 250000; i++) {
+      const pixel = document.createElement('div');
+      pixel.classList.add('pixel');
+      pixel.dataset.state = 'neutral';
+      pixel.addEventListener('click', () => {
+        if (pixel.dataset.state === 'neutral') {
+          pixel.classList.add(selectedColor);
+          pixel.dataset.state = selectedColor;
+        }
+      });
+      grid.appendChild(pixel);
+    }
+  </script></body>
+</html>
