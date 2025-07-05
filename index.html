@@ -1,6 +1,6 @@
 <!DOCTYPE html><html>
 <head>
-  <title>Gridlocked.space - 1000x1000</title>
+  <title>Gridlocked.space - 500x500</title>
   <style>
     body {
       margin: 0;
@@ -23,11 +23,11 @@
     }
     #grid {
       display: grid;
-      grid-template-columns: repeat(1000, 1px);
-      grid-template-rows: repeat(1000, 1px);
+      grid-template-columns: repeat(500, 1px);
+      grid-template-rows: repeat(500, 1px);
       margin: 0 auto;
-      width: 1000px;
-      height: 1000px;
+      width: 500px;
+      height: 500px;
     }
     .pixel {
       width: 1px;
@@ -39,7 +39,7 @@
   </style>
 </head>
 <body>
-  <h1>🔥 Gridlocked 1000 x 1000 MVP 🔥</h1>
+  <h1>🔥 Gridlocked 500 x 500 MVP 🔥</h1>
   <div id="controls">
     <button onclick="setColor('red')">Select Red</button>
     <button onclick="setColor('blue')">Select Blue</button>
@@ -52,7 +52,7 @@
       selectedColor = color;
     }
 
-    for (let i = 0; i < 1000000; i++) {
+    for (let i = 0; i < 1250000; i++) {
       const pixel = document.createElement('div');
       pixel.classList.add('pixel');
       pixel.dataset.state = 'neutral';
